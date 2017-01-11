@@ -8,7 +8,11 @@
 		switch ($controller) {
 			case 'post':
 				$post = new PostController();
-				$post -> index();
+				if(isset($_GET['method']) && $_GET['method'] == 'add') {
+					$post->add();
+				} else {
+					$post->index();
+				}
 				break;
 		}
 	}

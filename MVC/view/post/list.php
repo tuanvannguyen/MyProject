@@ -1,4 +1,6 @@
 <h2>List post</h2>
+<a href="http://localhost/Myproject/MVC?controller=post&method=add">Add new post</a>
+<br><br>
 <table border="1">
 	<thead>
 		<tr>

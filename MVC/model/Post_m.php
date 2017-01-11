@@ -19,5 +19,10 @@
 			}
 			return $result;
 		}
+		public function insert($content) {
+			$query = "insert into " . $this->table . "(content) value ('". $content ."') ;";
+			$rs = mysqli_query($this->conn, $query);
+			return $rs;
+		}
 	}
 ?>
