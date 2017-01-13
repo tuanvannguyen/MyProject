@@ -1,0 +1,15 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+.clear {
+	clear: both;
+}
+#formAdd {
+	border: solid 2px #cdcdcd;
+	width: 350px;
+	height: 70px;
+}
+a {
+	text-decoration: none;
+}

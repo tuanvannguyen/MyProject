@@ -10,10 +10,12 @@
 				$post = new PostController();
 				if(isset($_GET['method']) && $_GET['method'] == 'add') {
 					$post->add();
-				} else {
+				} else if (isset($_GET['method']) && $_GET['method'] == 'edit') {
+					$post->edit();
+				}else {
 					$post->index();
 				}
-				break;
+			break;
 		}
 	}
 ?>

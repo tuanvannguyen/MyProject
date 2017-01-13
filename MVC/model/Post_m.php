@@ -19,10 +19,32 @@
 			}
 			return $result;
 		}
+		public function getRow($id) {
+			$query = "select * from " . $this->table . "where id = ". $id .";";
+			$rs = mysqli_query($this->conn, $query);
+			$data = array();
+			while ($row = mysqli_fetch_array($rs)) {
+				$data = array(
+					'id' 		=> $row['id'],
+					'content' 	=> $row['content'],
+				);
+			}
+			return $data;
+		}
 		public function insert($content) {
 			$query = "insert into " . $this->table . "(content) value ('". $content ."') ;";
 			$rs = mysqli_query($this->conn, $query);
 			return $rs;
+		}
+		public function update($content, $id) {
+			$query = "update " . $this->table . " set content = '". $content ."' where id=".$id.";";
+			$rs = mysqli_query($this->conn, $query);
+			return $rs;
+		}
+		public function delete($id) {
+			$sql = "delete " . $this->table . "where id=".$id.";";
+			$rs = mysqli_query($this->conn, $sql);
+			return rs;
 		}
 	}
 ?>

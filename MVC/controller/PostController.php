@@ -9,7 +9,6 @@
 		}
 		public function add() {
 			$message = '';
-			include "view/post/create.php";
 			if(isset($_POST['btnSubmit'])) {
 				if($_POST['content'] != '') {
 					$input = $_POST;
@@ -22,6 +21,16 @@
 					$message = '<p style="color: red;">Content is required...</p>';
 				}
 			}
+			include "view/post/create.php";
+		}
+		public function edit() {
+			$id = isset($_GET['id']) ? (int)$_GET['id'] : '';
+				if ($id) {
+					$post = new Post_m();
+					$data = $post->getRow($id);
+				}
+
+			include "view/post/edit.php";
 		}
 	}
 ?>
