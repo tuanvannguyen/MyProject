@@ -1,6 +1,3 @@
-<?php 
-	echo $data['content'];
- ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +7,13 @@
 <body>
 	<a href="http://localhost/Myproject/MVC/?controller=post">Back to List</a>
 	<br><br>
-	<form id="formAdd" action="http://localhost/Myproject/MVC/?controller=post&method=edit&id=<?= $data['id']?>" method="POST">
-		Content: <input type="text" name="content" value="<?=$data['content'];?>"><br>
-		<input type="submit" name="btnSubmit" value="Save">
-	</form>
+	<?php if (isset($data)): ?>
+		<?php foreach ($data as $key => $value): ?>
+			<form id="formAdd" action="http://localhost/Myproject/MVC/?controller=post&method=edit&id=<?= $value['id']?>" method="POST">
+				Content: <input type="text" name="content" value="<?=$value['content'];?>"><br>
+				<input type="submit" name="btnSave" value="Save">
+			</form>
+		<?php endforeach ?>
+	<?php endif ?>
 </body>
 </html>

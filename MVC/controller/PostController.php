@@ -4,7 +4,19 @@
 	{
 		public function index() {
 			$post = new Post_m();
-			$listPost = $post->getAll();
+			if (isset($_POST['btn_Search']) && $_POST['search'] != '') {
+				echo "DONE";
+				$listPost = $post->search($_POST['search']);
+			}
+			else if(isset($_GET['id'])) {
+				$id = $_GET['id'];
+				$delete = $post->del($id);
+				header('Location: http://localhost/Myproject/MVC/?controller=post');
+				exit();
+			}
+			else {
+				$listPost = $post->getAll();
+			}
 			include "view/post/list.php";
 		}
 		public function add() {
@@ -29,7 +41,15 @@
 					$post = new Post_m();
 					$data = $post->getRow($id);
 				}
-
+				if (isset($_POST['btnSave'])) {
+					if($_POST['content'] != '') {
+						$input = $_POST;
+						$newpost = new Post_m();
+						$newpost->update(($input['content']), $id);
+						header('Location: http://localhost/Myproject/MVC/?controller=post');
+						exit();
+					}
+				}
 			include "view/post/edit.php";
 		}
 	}

@@ -12,7 +12,7 @@
 					$post->add();
 				} else if (isset($_GET['method']) && $_GET['method'] == 'edit') {
 					$post->edit();
-				}else {
+				} else {
 					$post->index();
 				}
 			break;
