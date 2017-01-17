@@ -15,7 +15,7 @@
 		}
 
 		public function running() {
-			echo "string";
+			echo "$";
 		}
 
 		public function eating() {
